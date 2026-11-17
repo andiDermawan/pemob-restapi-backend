@@ -1,0 +1,259 @@
+[
+  {
+    "name": "GET daftar data",
+    "method": "GET",
+    "url": "http://127.0.0.1:8080/api/umkm?page=1&per_page=10",
+    "path": "/api/umkm?page=1&per_page=10",
+    "request": null,
+    "status": 200,
+    "expected_status": 200,
+    "duration_ms": 18,
+    "response": {
+      "success": true,
+      "message": "Data UMKM berhasil diambil.",
+      "data": [
+        {
+          "id": 1,
+          "nama_umkm": "Kopi Nusantara",
+          "pemilik": "Rafi A",
+          "alamat": "Jl. A. Yani, Banjarbaru",
+          "kategori": "Kuliner",
+          "kontak": "081234567890"
+        },
+        {
+          "id": 2,
+          "nama_umkm": "Anyaman Banjar",
+          "pemilik": "Siti Rahmah",
+          "alamat": "Martapura, Banjar",
+          "kategori": "Kerajinan",
+          "kontak": "081298765432"
+        },
+        {
+          "id": 3,
+          "nama_umkm": "Dapur Kayuh",
+          "pemilik": "Budi Santoso",
+          "alamat": "Banjarmasin Utara",
+          "kategori": "Kuliner",
+          "kontak": "082155501234"
+        },
+        {
+          "id": 4,
+          "nama_umkm": "Warung Banua",
+          "pemilik": "Andi",
+          "alamat": "Jl. Veteran, Banjarmasin",
+          "kategori": "Kuliner",
+          "kontak": "081234567890"
+        },
+        {
+          "id": 5,
+          "nama_umkm": "test",
+          "pemilik": "test",
+          "alamat": "testt",
+          "kategori": "test",
+          "kontak": "testtt"
+        }
+      ],
+      "meta": {
+        "page": 1,
+        "per_page": 10,
+        "total": 5,
+        "total_pages": 1
+      }
+    }
+  },
+  {
+    "name": "POST tambah data",
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/umkm",
+    "path": "/api/umkm",
+    "request": {
+      "nama_umkm": "Warung Banua",
+      "pemilik": "Andi Dermawan",
+      "alamat": "Jl. Veteran, Banjarmasin",
+      "kategori": "Kuliner",
+      "kontak": "081234567890"
+    },
+    "status": 201,
+    "expected_status": 201,
+    "duration_ms": 12,
+    "response": {
+      "success": true,
+      "message": "Data UMKM berhasil ditambahkan.",
+      "data": {
+        "id": 6,
+        "nama_umkm": "Warung Banua",
+        "pemilik": "Andi Dermawan",
+        "alamat": "Jl. Veteran, Banjarmasin",
+        "kategori": "Kuliner",
+        "kontak": "081234567890"
+      }
+    }
+  },
+  {
+    "name": "GET detail data",
+    "method": "GET",
+    "url": "http://127.0.0.1:8080/api/umkm/6",
+    "path": "/api/umkm/6",
+    "request": null,
+    "status": 200,
+    "expected_status": 200,
+    "duration_ms": 3,
+    "response": {
+      "success": true,
+      "message": "Data UMKM berhasil diambil.",
+      "data": {
+        "id": 6,
+        "nama_umkm": "Warung Banua",
+        "pemilik": "Andi Dermawan",
+        "alamat": "Jl. Veteran, Banjarmasin",
+        "kategori": "Kuliner",
+        "kontak": "081234567890"
+      }
+    }
+  },
+  {
+    "name": "PUT ubah data",
+    "method": "PUT",
+    "url": "http://127.0.0.1:8080/api/umkm/6",
+    "path": "/api/umkm/6",
+    "request": {
+      "nama_umkm": "Warung Banua Baru",
+      "pemilik": "Andi Dermawan",
+      "alamat": "Jl. Veteran, Banjarmasin",
+      "kategori": "Kuliner",
+      "kontak": "081234567891"
+    },
+    "status": 200,
+    "expected_status": 200,
+    "duration_ms": 4,
+    "response": {
+      "success": true,
+      "message": "Data UMKM berhasil diperbarui.",
+      "data": {
+        "id": 6,
+        "nama_umkm": "Warung Banua Baru",
+        "pemilik": "Andi Dermawan",
+        "alamat": "Jl. Veteran, Banjarmasin",
+        "kategori": "Kuliner",
+        "kontak": "081234567891"
+      }
+    }
+  },
+  {
+    "name": "POST validasi gagal",
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/umkm",
+    "path": "/api/umkm",
+    "request": {},
+    "status": 422,
+    "expected_status": 422,
+    "duration_ms": 5,
+    "response": {
+      "success": false,
+      "message": "Validasi data gagal.",
+      "data": null,
+      "errors": {
+        "nama_umkm": "Nama UMKM wajib diisi.",
+        "pemilik": "Nama pemilik wajib diisi.",
+        "alamat": "Alamat wajib diisi.",
+        "kategori": "Kategori wajib diisi.",
+        "kontak": "Kontak wajib diisi."
+      }
+    }
+  },
+  {
+    "name": "GET id tidak ditemukan",
+    "method": "GET",
+    "url": "http://127.0.0.1:8080/api/umkm/999999",
+    "path": "/api/umkm/999999",
+    "request": null,
+    "status": 404,
+    "expected_status": 404,
+    "duration_ms": 3,
+    "response": {
+      "success": false,
+      "message": "Data UMKM tidak ditemukan.",
+      "data": null
+    }
+  },
+  {
+    "name": "DELETE hapus data",
+    "method": "DELETE",
+    "url": "http://127.0.0.1:8080/api/umkm/6",
+    "path": "/api/umkm/6",
+    "request": null,
+    "status": 200,
+    "expected_status": 200,
+    "duration_ms": 4,
+    "response": {
+      "success": true,
+      "message": "Data UMKM berhasil dihapus.",
+      "data": {
+        "id": 6,
+        "nama_umkm": "Warung Banua Baru"
+      }
+    }
+  },
+  {
+    "name": "GET daftar setelah uji",
+    "method": "GET",
+    "url": "http://127.0.0.1:8080/api/umkm?page=1&per_page=10",
+    "path": "/api/umkm?page=1&per_page=10",
+    "request": null,
+    "status": 200,
+    "expected_status": 200,
+    "duration_ms": 3,
+    "response": {
+      "success": true,
+      "message": "Data UMKM berhasil diambil.",
+      "data": [
+        {
+          "id": 1,
+          "nama_umkm": "Kopi Nusantara",
+          "pemilik": "Rafi A",
+          "alamat": "Jl. A. Yani, Banjarbaru",
+          "kategori": "Kuliner",
+          "kontak": "081234567890"
+        },
+        {
+          "id": 2,
+          "nama_umkm": "Anyaman Banjar",
+          "pemilik": "Siti Rahmah",
+          "alamat": "Martapura, Banjar",
+          "kategori": "Kerajinan",
+          "kontak": "081298765432"
+        },
+        {
+          "id": 3,
+          "nama_umkm": "Dapur Kayuh",
+          "pemilik": "Budi Santoso",
+          "alamat": "Banjarmasin Utara",
+          "kategori": "Kuliner",
+          "kontak": "082155501234"
+        },
+        {
+          "id": 4,
+          "nama_umkm": "Warung Banua",
+          "pemilik": "Andi",
+          "alamat": "Jl. Veteran, Banjarmasin",
+          "kategori": "Kuliner",
+          "kontak": "081234567890"
+        },
+        {
+          "id": 5,
+          "nama_umkm": "test",
+          "pemilik": "test",
+          "alamat": "testt",
+          "kategori": "test",
+          "kontak": "testtt"
+        }
+      ],
+      "meta": {
+        "page": 1,
+        "per_page": 10,
+        "total": 5,
+        "total_pages": 1
+      }
+    }
+  }
+]

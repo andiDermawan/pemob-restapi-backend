@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="id">
+    <head>
+        <meta charset="utf-8" />
+        <title>API Test Capture - UMKM Lokal</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                margin: 0;
+                background: #eef3f0;
+                color: #18251e;
+                font:
+                    14px/1.45 Arial,
+                    sans-serif;
+                padding: 34px;
+            }
+            .page {
+                max-width: 1480px;
+                margin: auto;
+            }
+            .hero {
+                background: linear-gradient(120deg, #115e49, #238365);
+                color: white;
+                border-radius: 8px;
+                padding: 26px 30px;
+                margin-bottom: 18px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .eyebrow {
+                text-transform: uppercase;
+                letter-spacing: 1.5px;
+                font-weight: 700;
+                font-size: 11px;
+                color: #c5ead7;
+            }
+            .hero h1 {
+                font-size: 30px;
+                margin: 5px 0;
+            }
+            .hero p {
+                margin: 0;
+                color: #d7eee1;
+            }
+            .summary {
+                background: #fff;
+                border-radius: 8px;
+                padding: 12px 16px;
+                color: #17664f;
+                font-weight: 700;
+                text-align: center;
+                min-width: 130px;
+            }
+            .grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 14px;
+            }
+            .card {
+                background: white;
+                border: 1px solid #dfe8e2;
+                border-radius: 8px;
+                padding: 16px;
+                box-shadow: 0 2px 7px #1d3b2b0c;
+                break-inside: avoid;
+            }
+            .card-head {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 8px;
+            }
+            .card-head > div {
+                display: flex;
+                align-items: center;
+                gap: 9px;
+            }
+            .card-head strong {
+                font-size: 16px;
+            }
+            .method {
+                font-weight: 800;
+                border-radius: 8px;
+                padding: 4px 7px;
+                font-size: 11px;
+                color: white;
+            }
+            .get {
+                background: #2672c9;
+            }
+            .post {
+                background: #198553;
+            }
+            .put {
+                background: #ad7315;
+            }
+            .delete {
+                background: #bd4e4e;
+            }
+            .status {
+                font-size: 11px;
+                font-weight: 700;
+                border-radius: 8px;
+                padding: 5px 9px;
+                white-space: nowrap;
+            }
+            .pass {
+                background: #e5f5eb;
+                color: #176c3b;
+            }
+            .fail {
+                background: #ffe5e3;
+                color: #9b2b21;
+            }
+            .url {
+                font-family: monospace;
+                color: #41594d;
+                font-size: 12px;
+                margin: 8px 0 10px;
+            }
+            .label {
+                font-size: 10px;
+                letter-spacing: 1px;
+                color: #74847b;
+                font-weight: 800;
+                margin: 10px 0 4px;
+            }
+            pre {
+                white-space: pre-wrap;
+                overflow-wrap: anywhere;
+                margin: 0;
+                background: #f6f8f7;
+                border-radius: 8px;
+                padding: 10px 11px;
+                color: #24352c;
+                font:
+                    11px/1.35 "DejaVu Sans Mono",
+                    monospace;
+            }
+            .muted {
+                font-size: 11px;
+                color: #718078;
+                background: #f6f8f7;
+                padding: 8px 11px;
+                border-radius: 8px;
+            }
+            .footer {
+                font-size: 11px;
+                color: #66756d;
+                text-align: right;
+                margin: 12px 4px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <main class="page">
+            <header class="hero">
+                <div>
+                    <div class="eyebrow">Capture Pengujian API · CI4</div>
+                    <h1>UMKM Lokal REST API</h1>
+                    <p>
+                        Request HTTP langsung ke server CodeIgniter 4 lokal · 17
+                        November 2026
+                    </p>
+                </div>
+                <div class="summary">8 / 8<br />BERHASIL</div>
+            </header>
+            <section class="grid">
+                <article class="card">
+                    <div class="card-head">
+                        <div>
+                            <span class="method get">GET</span
+                            ><strong>GET daftar data</strong>
+                        </div>
+                        <span class="status pass">HTTP 200 · sesuai</span>
+                    </div>
+                    <div class="url">/api/umkm?page=1&amp;per_page=10</div>
+                    <div class="label">REQUEST BODY</div>
+                    <div class="muted">Tanpa request body</div>
+                    <div class="label">RESPONSE · 18 ms</div>
+                    <pre>
+{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Data UMKM berhasil diambil.&quot;,
+  &quot;data&quot;: [
+    {
+      &quot;id&quot;: 1,
+      &quot;nama_umkm&quot;: &quot;Kopi Nusantara&quot;,
+      &quot;pemilik&quot;: &quot;Rafi A&quot;,
+      &quot;alamat&quot;: &quot;Jl. A. Yani, Banjarbaru&quot;,
+      &quot;kategori&quot;: &quot;Kuliner&quot;,
+      &quot;kontak&quot;: &quot;081234567890&quot;
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;nama_umkm&quot;: &quot;Anyaman Banjar&quot;,
+      &quot;pemilik&quot;: &quot;Siti Rahmah&quot;,
+      &quot;alamat&quot;: &quot;Martapura, Banjar&quot;,
+      &quot;kategori&quot;: &quot;Kerajinan&quot;,
+      &quot;kontak&quot;: &quot;081298765432&quot;
+    },
+    {
+      &quot;id&quot;: 3,
+      &quot;nama_umkm&quot;: &quot;Dapur Kayuh&quot;,
+      &quot;pemilik&quot;: &quot;Budi Santoso&quot;,
+      &quot;alamat&quot;: &quot;Banjarmasin Utara&quot;,
+      &quot;kategori&quot;: &quot;Kuliner&quot;,
+      &quot;kontak&quot;: &quot;082155501234&quot;
+    },
+    {
+      &quot;id&quot;: 4,
+      &quot;nama_umkm&quot;: &quot;Warung Banua&quot;,
+      &quot;pemilik&quot;: &quot;Andi&quot;,
+      &quot;alamat&quot;: &quot;Jl. Veteran, Banjarmasin&quot;,
+      &quot;kategori&quot;: &quot;Kuliner&quot;,
+      &quot;kontak&quot;: &quot;081234567890&quot;
+    },
+    {
+      &quot;id&quot;: 5,
+      &quot;nama_umkm&quot;: &quot;test&quot;,
+      &quot;pemilik&quot;: &quot;test&quot;,
+      &quot;alamat&quot;: &quot;testt&quot;,
+      &quot;kategori&quot;: &quot;test&quot;,
+      &quot;kontak&quot;: &quot;testtt&quot;
+    }
+  ],
+  &quot;meta&quot;: {
+    &quot;page&quot;: 1,
+    &quot;per_page&quot;: 10,
+    &quot;total&quot;: 5,
+    &quot;total_pages&quot;: 1
+  }
+}</pre
+                    >
+                </article>
+                <article class="card">
+                    <div class="card-head">
+                        <div>
+                            <span class="method post">POST</span
+                            ><strong>POST tambah data</strong>
+                        </div>
+                        <span class="status pass">HTTP 201 · sesuai</span>
+                    </div>
+                    <div class="url">/api/umkm</div>
+                    <div class="label">REQUEST BODY</div>
+                    <pre>
+{
+  &quot;nama_umkm&quot;: &quot;Warung Banua&quot;,
+  &quot;pemilik&quot;: &quot;Andi Dermawan&quot;,
+  &quot;alamat&quot;: &quot;Jl. Veteran, Banjarmasin&quot;,
+  &quot;kategori&quot;: &quot;Kuliner&quot;,
+  &quot;kontak&quot;: &quot;081234567890&quot;
+}</pre
+                    >
+                    <div class="label">RESPONSE · 12 ms</div>
+                    <pre>
+{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Data UMKM berhasil ditambahkan.&quot;,
+  &quot;data&quot;: {
+    &quot;id&quot;: 6,
+    &quot;nama_umkm&quot;: &quot;Warung Banua&quot;,
+    &quot;pemilik&quot;: &quot;Andi Dermawan&quot;,
+    &quot;alamat&quot;: &quot;Jl. Veteran, Banjarmasin&quot;,
+    &quot;kategori&quot;: &quot;Kuliner&quot;,
+    &quot;kontak&quot;: &quot;081234567890&quot;
+  }
+}</pre
+                    >
+                </article>
+                <article class="card">
+                    <div class="card-head">
+                        <div>
+                            <span class="method get">GET</span
+                            ><strong>GET detail data</strong>
+                        </div>
+                        <span class="status pass">HTTP 200 · sesuai</span>
+                    </div>
+                    <div class="url">/api/umkm/6</div>
+                    <div class="label">REQUEST BODY</div>
+                    <div class="muted">Tanpa request body</div>
+                    <div class="label">RESPONSE · 3 ms</div>
+                    <pre>
+{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Data UMKM berhasil diambil.&quot;,
+  &quot;data&quot;: {
+    &quot;id&quot;: 6,
+    &quot;nama_umkm&quot;: &quot;Warung Banua&quot;,
+    &quot;pemilik&quot;: &quot;Andi Dermawan&quot;,
+    &quot;alamat&quot;: &quot;Jl. Veteran, Banjarmasin&quot;,
+    &quot;kategori&quot;: &quot;Kuliner&quot;,
+    &quot;kontak&quot;: &quot;081234567890&quot;
+  }
+}</pre
+                    >
+                </article>
+                <article class="card">
+                    <div class="card-head">
+                        <div>
+                            <span class="method put">PUT</span
+                            ><strong>PUT ubah data</strong>
+                        </div>
+                        <span class="status pass">HTTP 200 · sesuai</span>
+                    </div>
+                    <div class="url">/api/umkm/6</div>
+                    <div class="label">REQUEST BODY</div>
+                    <pre>
+{
+  &quot;nama_umkm&quot;: &quot;Warung Banua Baru&quot;,
+  &quot;pemilik&quot;: &quot;Andi Dermawan&quot;,
+  &quot;alamat&quot;: &quot;Jl. Veteran, Banjarmasin&quot;,
+  &quot;kategori&quot;: &quot;Kuliner&quot;,
+  &quot;kontak&quot;: &quot;081234567891&quot;
+}</pre
+                    >
+                    <div class="label">RESPONSE · 4 ms</div>
+                    <pre>
+{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Data UMKM berhasil diperbarui.&quot;,
+  &quot;data&quot;: {
+    &quot;id&quot;: 6,
+    &quot;nama_umkm&quot;: &quot;Warung Banua Baru&quot;,
+    &quot;pemilik&quot;: &quot;Andi Dermawan&quot;,
+    &quot;alamat&quot;: &quot;Jl. Veteran, Banjarmasin&quot;,
+    &quot;kategori&quot;: &quot;Kuliner&quot;,
+    &quot;kontak&quot;: &quot;081234567891&quot;
+  }
+}</pre
+                    >
+                </article>
+                <article class="card">
+                    <div class="card-head">
+                        <div>
+                            <span class="method post">POST</span
+                            ><strong>POST validasi gagal</strong>
+                        </div>
+                        <span class="status pass">HTTP 422 · sesuai</span>
+                    </div>
+                    <div class="url">/api/umkm</div>
+                    <div class="label">REQUEST BODY</div>
+                    <pre>{}</pre>
+                    <div class="label">RESPONSE · 5 ms</div>
+                    <pre>
+{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Validasi data gagal.&quot;,
+  &quot;data&quot;: null,
+  &quot;errors&quot;: {
+    &quot;nama_umkm&quot;: &quot;Nama UMKM wajib diisi.&quot;,
+    &quot;pemilik&quot;: &quot;Nama pemilik wajib diisi.&quot;,
+    &quot;alamat&quot;: &quot;Alamat wajib diisi.&quot;,
+    &quot;kategori&quot;: &quot;Kategori wajib diisi.&quot;,
+    &quot;kontak&quot;: &quot;Kontak wajib diisi.&quot;
+  }
+}</pre
+                    >
+                </article>
+                <article class="card">
+                    <div class="card-head">
+                        <div>
+                            <span class="method get">GET</span
+                            ><strong>GET id tidak ditemukan</strong>
+                        </div>
+                        <span class="status pass">HTTP 404 · sesuai</span>
+                    </div>
+                    <div class="url">/api/umkm/999999</div>
+                    <div class="label">REQUEST BODY</div>
+                    <div class="muted">Tanpa request body</div>
+                    <div class="label">RESPONSE · 3 ms</div>
+                    <pre>
+{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Data UMKM tidak ditemukan.&quot;,
+  &quot;data&quot;: null
+}</pre
+                    >
+                </article>
+                <article class="card">
+                    <div class="card-head">
+                        <div>
+                            <span class="method delete">DELETE</span
+                            ><strong>DELETE hapus data</strong>
+                        </div>
+                        <span class="status pass">HTTP 200 · sesuai</span>
+                    </div>
+                    <div class="url">/api/umkm/6</div>
+                    <div class="label">REQUEST BODY</div>
+                    <div class="muted">Tanpa request body</div>
+                    <div class="label">RESPONSE · 4 ms</div>
+                    <pre>
+{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Data UMKM berhasil dihapus.&quot;,
+  &quot;data&quot;: {
+    &quot;id&quot;: 6,
+    &quot;nama_umkm&quot;: &quot;Warung Banua Baru&quot;
+  }
+}</pre
+                    >
+                </article>
+                <article class="card">
+                    <div class="card-head">
+                        <div>
+                            <span class="method get">GET</span
+                            ><strong>GET daftar setelah uji</strong>
+                        </div>
+                        <span class="status pass">HTTP 200 · sesuai</span>
+                    </div>
+                    <div class="url">/api/umkm?page=1&amp;per_page=10</div>
+                    <div class="label">REQUEST BODY</div>
+                    <div class="muted">Tanpa request body</div>
+                    <div class="label">RESPONSE · 3 ms</div>
+                    <pre>
+{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Data UMKM berhasil diambil.&quot;,
+  &quot;data&quot;: [
+    {
+      &quot;id&quot;: 1,
+      &quot;nama_umkm&quot;: &quot;Kopi Nusantara&quot;,
+      &quot;pemilik&quot;: &quot;Rafi A&quot;,
+      &quot;alamat&quot;: &quot;Jl. A. Yani, Banjarbaru&quot;,
+      &quot;kategori&quot;: &quot;Kuliner&quot;,
+      &quot;kontak&quot;: &quot;081234567890&quot;
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;nama_umkm&quot;: &quot;Anyaman Banjar&quot;,
+      &quot;pemilik&quot;: &quot;Siti Rahmah&quot;,
+      &quot;alamat&quot;: &quot;Martapura, Banjar&quot;,
+      &quot;kategori&quot;: &quot;Kerajinan&quot;,
+      &quot;kontak&quot;: &quot;081298765432&quot;
+    },
+    {
+      &quot;id&quot;: 3,
+      &quot;nama_umkm&quot;: &quot;Dapur Kayuh&quot;,
+      &quot;pemilik&quot;: &quot;Budi Santoso&quot;,
+      &quot;alamat&quot;: &quot;Banjarmasin Utara&quot;,
+      &quot;kategori&quot;: &quot;Kuliner&quot;,
+      &quot;kontak&quot;: &quot;082155501234&quot;
+    },
+    {
+      &quot;id&quot;: 4,
+      &quot;nama_umkm&quot;: &quot;Warung Banua&quot;,
+      &quot;pemilik&quot;: &quot;Andi&quot;,
+      &quot;alamat&quot;: &quot;Jl. Veteran, Banjarmasin&quot;,
+      &quot;kategori&quot;: &quot;Kuliner&quot;,
+      &quot;kontak&quot;: &quot;081234567890&quot;
+    },
+    {
+      &quot;id&quot;: 5,
+      &quot;nama_umkm&quot;: &quot;test&quot;,
+      &quot;pemilik&quot;: &quot;test&quot;,
+      &quot;alamat&quot;: &quot;testt&quot;,
+      &quot;kategori&quot;: &quot;test&quot;,
+      &quot;kontak&quot;: &quot;testtt&quot;
+    }
+  ],
+  &quot;meta&quot;: {
+    &quot;page&quot;: 1,
+    &quot;per_page&quot;: 10,
+    &quot;total&quot;: 5,
+    &quot;total_pages&quot;: 1
+  }
+}</pre
+                    >
+                </article>
+            </section>
+            <div class="footer">
+                Status HTTP dan isi JSON diambil dari respons server saat
+                pengujian.
+            </div>
+        </main>
+    </body>
+</html>
