@@ -1,0 +1,45 @@
+{
+    "next_id": 6,
+    "records": [
+        {
+            "id": 1,
+            "nama_umkm": "Kopi Nusantara",
+            "pemilik": "Rafi A",
+            "alamat": "Jl. A. Yani, Banjarbaru",
+            "kategori": "Kuliner",
+            "kontak": "081234567890"
+        },
+        {
+            "id": 2,
+            "nama_umkm": "Anyaman Banjar",
+            "pemilik": "Siti Rahmah",
+            "alamat": "Martapura, Banjar",
+            "kategori": "Kerajinan",
+            "kontak": "081298765432"
+        },
+        {
+            "id": 3,
+            "nama_umkm": "Dapur Kayuh",
+            "pemilik": "Budi Santoso",
+            "alamat": "Banjarmasin Utara",
+            "kategori": "Kuliner",
+            "kontak": "082155501234"
+        },
+        {
+            "id": 4,
+            "nama_umkm": "Warung Banua",
+            "pemilik": "Andi",
+            "alamat": "Jl. Veteran, Banjarmasin",
+            "kategori": "Kuliner",
+            "kontak": "081234567890"
+        },
+        {
+            "id": 5,
+            "nama_umkm": "test",
+            "pemilik": "test",
+            "alamat": "testt",
+            "kategori": "test",
+            "kontak": "testtt"
+        }
+    ]
+}
